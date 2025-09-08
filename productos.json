@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nombre": "Camisa de Trabajo",
+    "precio": 20000,
+    "img": "../image/Camisa-de-trabajo.webp"
+  },
+  {
+    "id": 2,
+    "nombre": "Campera de Abrigo",
+    "precio": 40000,
+    "img": "../image/Campera-de-abrigo.jpeg"
+  },
+  {
+    "id": 3,
+    "nombre": "Botas de Seguridad",
+    "precio": 80000,
+    "img": "../image/Botas-de-seguridad.JPG"
+  },
+  {
+    "id": 4,
+    "nombre": "Pantalon cargo comun",
+    "precio": 46000,
+    "img": "../image/cargo comun.webp"
+  },
+  {
+    "id": 5,
+    "nombre": "Ambo sanidad",
+    "precio": 60000,
+    "img": "../image/ambo.JPG"
+  },
+  {
+    "id": 6,
+    "nombre": "Pantalon cargo rip stop",
+    "precio": 56000,
+    "img": "../image/cargoripstop.webp"
+  },
+  {
+    "id": 7,
+    "nombre": "Pantalon de trabajo",
+    "precio": 28000,
+    "img": "../image/pantalon de trabajo.webp"
+  },
+  {
+    "id": 8,
+    "nombre": "Conjunto de seguridad",
+    "precio": 65000,
+    "img": "../image/ropa de seguridad.JPG"
+  },
+  {
+    "id": 9,
+    "nombre": "Faldón de cocina",
+    "precio": 15000,
+    "img": "../image/fladon.JPG"
+  },
+  {
+    "id": 10,
+    "nombre": "Chaqueta de chef",
+    "precio": 35000,
+    "img": "../image/chaqueta de chef.JPG"
+  }
+]

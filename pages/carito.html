@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../image/carrito-de-compras.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+    <title>Carrito</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-interno">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="../image/43d55f45-c905-48ce-8552-bac542ca8ee4-removebg-preview.png" alt="Logo"
+                        height="50" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="./catalogo.html" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Catálogo
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./catalogo.html">Sanidad</a></li>
+                                <li><a class="dropdown-item" href="./catalogo.html">Construcción</a></li>
+                                <li><a class="dropdown-item" href="./catalogo.html">Gastronomía</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex" role="search">
+                        <a href="./carito.html" class="cart-icon">
+                            <i class="bi bi-cart-fill"></i>
+                        </a>
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="search" />
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="volver-tienda">
+            <a href="../index.html" class="btn-naranja">
+                ← Volver a la Tienda
+            </a>
+        </section>
+
+        <section id="carrito" class="producto-titulo">
+            <h2>Carrito de compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p>Total: $<span id="total">0</span></p>
+            <div id="descuento-container">
+                <input type="text" id="codigo-descuento" placeholder="Código de descuento" />
+                <button id="aplicar-descuento">Aplicar</button>
+                <p id="mensaje-descuento" style="color: green; display: none;">¡Descuento aplicado!</p>
+            </div>
+
+            <button id="vaciar-carrito">Vaciar Carrito</button>
+            <button id="finalizar-compra">Finalizar Compra</button>
+
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-seccion">
+                <h3>Acerca de Nosotros</h3>
+                <p>
+                    Somos especialistas en ropa de trabajo de calidad, segura y cómoda
+                    para tu día a día laboral.
+                </p>
+            </div>
+            <div class="footer-seccion">
+                <h3>Contacto</h3>
+                <p>Email: info@uniformo.com.ar</p>
+                <p>Tel: +54 11 1234-5678</p>
+                <p>Dirección: Capital Federal</p>
+            </div>
+            <div class="footer-seccion">
+                <h3>Síguenos</h3>
+                <p>Redes sociales:</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><img src="" alt="" />Facebook</a>
+                    <a href="https://www.instagram.com/">Instagram</a>
+                    <a href="https://www.linkedin.com/">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy">
+            &copy; 2025 Uniformo. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../javascript/carrito.js"></script>
+</body>
+
+</html>
