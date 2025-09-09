@@ -1,6 +1,5 @@
-// ==============================
 // CARRITO
-// ==============================
+
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardarCarrito() {
@@ -67,9 +66,8 @@ function agregarAlCarrito(producto) {
   });
 }
 
-// ==============================
 // DESCUENTO
-// ==============================
+
 function aplicarDescuento() {
   const codigoInput = document.getElementById("codigo-descuento");
   const mensaje = document.getElementById("mensaje-descuento");
@@ -91,9 +89,8 @@ function aplicarDescuento() {
   }
 }
 
-// ==============================
 // FINALIZAR COMPRA
-// ==============================
+
 function finalizarCompra() {
   if (carrito.length === 0) {
     Swal.fire({
@@ -161,9 +158,8 @@ function finalizarCompra() {
   });
 }
 
-// ==============================
 // CARGAR PRODUCTOS DINÁMICAMENTE
-// ==============================
+
 document.addEventListener("DOMContentLoaded", () => {
   actualizarCarrito();
 
@@ -177,14 +173,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnFinalizar = document.getElementById("finalizar-compra");
   if (btnFinalizar) btnFinalizar.addEventListener("click", finalizarCompra);
 
-  // Contenedor principal
   const main = document.querySelector("#productos-container");
   if (!main) return;
 
   fetch("../productos.json")
     .then((res) => res.json())
     .then((productos) => {
-      // Agrupar productos por categoría
+
       const categorias = {};
       productos.forEach((producto) => {
         if (!categorias[producto.categoria]) {
@@ -193,20 +188,18 @@ document.addEventListener("DOMContentLoaded", () => {
         categorias[producto.categoria].push(producto);
       });
 
-      // Crear secciones por categoría
       for (const categoria in categorias) {
-        // Contenedor del título (para CSS)
+
         const contenedorTitulo = document.createElement("div");
         contenedorTitulo.className = "producto-titulo";
 
         const titulo = document.createElement("h2");
         titulo.textContent = categoria;
-        titulo.classList.add("categoria"); // clase para estilos
+        titulo.classList.add("categoria"); 
         contenedorTitulo.appendChild(titulo);
 
         main.appendChild(contenedorTitulo);
 
-        // Sección de tarjetas
         const section = document.createElement("section");
         section.className = "tarjetas-container";
         main.appendChild(section);
@@ -231,7 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
           section.appendChild(tarjeta);
         });
 
-        // Evento agregar al carrito
         section.addEventListener("click", (e) => {
           if (e.target.classList.contains("agregar-carrito")) {
             const tarjeta = e.target.closest(".producto");
