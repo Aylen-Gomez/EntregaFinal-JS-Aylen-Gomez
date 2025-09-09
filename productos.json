@@ -3,31 +3,36 @@
     "id": 1,
     "nombre": "Camisa de Trabajo",
     "precio": 20000,
-    "img": "../image/Camisa-de-trabajo.webp"
+    "img": "../image/Camisa-de-trabajo.webp",
+    "categoria": "Construccion"
   },
   {
     "id": 2,
-    "nombre": "Campera de Abrigo",
+    "nombre": "Pantalon Nautico",
     "precio": 40000,
-    "img": "../image/Campera-de-abrigo.jpeg"
+    "img": "",
+    "categoria": "Sanidad"
   },
   {
     "id": 3,
     "nombre": "Botas de Seguridad",
     "precio": 80000,
-    "img": "../image/Botas-de-seguridad.JPG"
+    "img": "../image/Botas-de-seguridad.JPG",
+
   },
   {
     "id": 4,
     "nombre": "Pantalon cargo comun",
     "precio": 46000,
-    "img": "../image/cargo comun.webp"
+    "img": "../image/cargo comun.webp",
+    "categoria": "Construccion"
   },
   {
     "id": 5,
     "nombre": "Ambo sanidad",
     "precio": 60000,
-    "img": "../image/ambo.JPG"
+    "img": "../image/ambo.JPG",
+    "categoria": "Sanidad"
   },
   {
     "id": 6,
@@ -39,7 +44,8 @@
     "id": 7,
     "nombre": "Pantalon de trabajo",
     "precio": 28000,
-    "img": "../image/pantalon de trabajo.webp"
+    "img": "../image/pantalon de trabajo.webp",
+    "categoria": "Construccion"
   },
   {
     "id": 8,
@@ -51,12 +57,14 @@
     "id": 9,
     "nombre": "Faldón de cocina",
     "precio": 15000,
-    "img": "../image/fladon.JPG"
+    "img": "../image/fladon.JPG",
+    "categoria": "Gastronomia"
   },
   {
     "id": 10,
     "nombre": "Chaqueta de chef",
     "precio": 35000,
-    "img": "../image/chaqueta de chef.JPG"
+    "img": "../image/chaqueta de chef.JPG",
+    "categoria": "Gastronomia"
   }
 ]

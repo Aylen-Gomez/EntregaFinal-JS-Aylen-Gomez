@@ -73,7 +73,7 @@ function aplicarDescuento() {
 
   if (codigo === "DESC10") {
     const totalActual = parseInt(totalSpan.textContent);
-    const totalDescontado = Math.round(totalActual * 0.9); 
+    const totalDescontado = Math.round(totalActual * 0.9);
     totalSpan.textContent = totalDescontado;
     mensaje.style.display = "block";
     mensaje.style.color = "green";
@@ -164,45 +164,67 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnFinalizar = document.getElementById("finalizar-compra");
   if (btnFinalizar) btnFinalizar.addEventListener("click", finalizarCompra);
 
-
-  const contenedorProductos = document.getElementById("productos-container");
-  if (contenedorProductos) {
+  // 👉 Generar secciones dinámicas
+  const main = document.querySelector("main");
+  if (main) {
     fetch("../productos.json")
       .then((res) => res.json())
       .then((productos) => {
+        // Agrupar productos por categoría
+        const categorias = {};
         productos.forEach((producto) => {
-          const tarjeta = document.createElement("div");
-          tarjeta.className = "tarjeta producto";
-          tarjeta.dataset.id = producto.id;
-          tarjeta.dataset.nombre = producto.nombre;
-          tarjeta.dataset.precio = producto.precio;
-
-          tarjeta.innerHTML = `
-            <div class="tarjeta-imagen">
-              <img src="${producto.img}" alt="${producto.nombre}" />
-            </div>
-            <div class="tarjeta-contenido">
-              <h3 class="tarjeta-titulo">${producto.nombre}</h3>
-              <span class="tarjeta-precio">$${producto.precio}</span>
-              <button class="tarjeta-boton agregar-carrito">Agregar al carrito</button>
-            </div>
-          `;
-
-          contenedorProductos.appendChild(tarjeta);
-        });
-
-        contenedorProductos.addEventListener("click", (e) => {
-          if (e.target.classList.contains("agregar-carrito")) {
-            const tarjeta = e.target.closest(".producto");
-            const producto = {
-              id: tarjeta.dataset.id,
-              nombre: tarjeta.dataset.nombre,
-              precio: parseInt(tarjeta.dataset.precio),
-            };
-            agregarAlCarrito(producto);
+          if (!categorias[producto.categoria]) {
+            categorias[producto.categoria] = [];
           }
+          categorias[producto.categoria].push(producto);
         });
+
+        // Crear secciones dinámicas
+        for (const categoria in categorias) {
+          const titulo = document.createElement("h2");
+          titulo.textContent = categoria;
+          main.appendChild(titulo);
+
+          const section = document.createElement("section");
+          section.className = "tarjetas-container";
+          main.appendChild(section);
+
+          categorias[categoria].forEach((producto) => {
+            const tarjeta = document.createElement("div");
+            tarjeta.className = "tarjeta producto";
+            tarjeta.dataset.id = producto.id;
+            tarjeta.dataset.nombre = producto.nombre;
+            tarjeta.dataset.precio = producto.precio;
+
+            tarjeta.innerHTML = `
+              <div class="tarjeta-imagen">
+                <img src="${producto.img}" alt="${producto.nombre}" />
+              </div>
+              <div class="tarjeta-contenido">
+                <h3 class="tarjeta-titulo">${producto.nombre}</h3>
+                <span class="tarjeta-precio">$${producto.precio}</span>
+                <button class="tarjeta-boton agregar-carrito">Agregar al carrito</button>
+              </div>
+            `;
+
+            section.appendChild(tarjeta);
+          });
+
+          // Evento de agregar al carrito en cada sección
+          section.addEventListener("click", (e) => {
+            if (e.target.classList.contains("agregar-carrito")) {
+              const tarjeta = e.target.closest(".producto");
+              const producto = {
+                id: tarjeta.dataset.id,
+                nombre: tarjeta.dataset.nombre,
+                precio: parseInt(tarjeta.dataset.precio),
+              };
+              agregarAlCarrito(producto);
+            }
+          });
+        }
       })
       .catch((error) => console.error("Error al cargar productos:", error));
   }
 });
+
